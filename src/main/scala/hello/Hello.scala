@@ -6,43 +6,43 @@ package hello
 object Hello {
   var counter = 10
 
-  def plusCounter(a: Int):Int = counter + a
+  def plusCounter(a: Int): Int = counter + a
 
   // RHS of a function declaration is simply an EXPRESSION
-//  def add(a:Int, b: Int):Int = {a + b}
+  //  def add(a:Int, b: Int):Int = {a + b}
 
   // curlies here are still an EXPRESSION
-  def add(a:Int, b: Int):Int = {
-//    counter++ // don't have ++ etc!
-//    counter += 1 // BAD!!! "observable side effect"
+  def add(a: Int, b: Int): Int = {
+    //    counter++ // don't have ++ etc!
+    //    counter += 1 // BAD!!! "observable side effect"
 
     // printing is technically a "side effect" but not really "observable"
     println(s"adding ${a} and $b to produce ${a + b}")
 
-//    return a + b // allowed but ODD and unnecessary
+    //    return a + b // allowed but ODD and unnecessary
     a + b
   }
 
-//  def describe(a: Int, b: Int): String = {
-//    if (a > b) {
-//      return "a is greater than b"
-//    } else {
-//      return "b is greater than a"
-//    }
-//  }
+  //  def describe(a: Int, b: Int): String = {
+  //    if (a > b) {
+  //      return "a is greater than b"
+  //    } else {
+  //      return "b is greater than a"
+  //    }
+  //  }
 
   def describe(a: Int, b: Int): String =
     if (a > b) "a is greater than b"
     else "b is greater than a"
 
-  def getUnit:Unit = {
+  def getUnit: Unit = {
     println("Getting unit...")
     ()
   }
-//  val getUnit = ()
+  //  val getUnit = ()
 
-//  def showMany(xs:String*):Unit = {
-  def showMany(xs:Any*):Unit = {
+  //  def showMany(xs:String*):Unit = {
+  def showMany(xs: Any*): Unit = {
     println(xs)
     for {
       v <- xs
@@ -71,14 +71,14 @@ object Hello {
     showMany("A", "B")
 
     val names = Array("Fred", "Jim", "Sheila")
-    showMany(names:_*)
+    showMany(names: _*)
 
     // Any -  any type including "primitives"
     // AnyRef - equivalent to java.lang.Object
     // val is "final" in Java
-//    val n1:AnyRef = "Hello"
-    val n1:String = "Hello"
-//    n1 = "Bonjour"
+    //    val n1:AnyRef = "Hello"
+    val n1: String = "Hello"
+    //    n1 = "Bonjour"
     val n3 = "He" // type inferred to be String
     val n2 = n3 + "llo"
     println(n1)
@@ -90,7 +90,7 @@ object Hello {
     println(n1.eq(n2))
 
     var count = 99
-//    count = "ninetyseven" // NOPE, strong static type!
+    //    count = "ninetyseven" // NOPE, strong static type!
 
     count -= 1
     println(count)
@@ -111,7 +111,7 @@ object Hello {
     // scala 2 tuple element access is ugly
     println(t._1) // NOTE, indexes are ONE based
     // tuples are immutable
-//    t._1 = 100 // NOT allowed
+    //    t._1 = 100 // NOT allowed
 
     val (x1, x2, x3) = t
     println(s"x1 is ${x1}..")
